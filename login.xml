@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Created by http://cafe.naver.com/citrineframework
+	You can freely copy, distribute, modify for commercial or non-commercial purposes.
+-->
+<MOML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.applusform.com/xsd/moml_ui.xsd" version="1.1.1">
+	<FUNCTION id="logoAniTo">
+
+		<CMD cmd="animation.show('logo', 'fade', '', 700, '')" />
+		<CMD cmd="animation.flyIn('logo', 0, 300, logo.width, logo.height, '', 500, '')" />
+		<CMD cmd="video.autoPlay='true',video.play='true'" delay="300"/>
+	</FUNCTION>
+
+	<FUNCTION id="loginPopup">
+		<CMD cmd="container.open('loginPopup.xml','root.login')" />
+	</FUNCTION>
+
+	<FUNCTION id="signUpPopup">
+		<CMD cmd="container.open('signUpPopup.xml','root.signup')" />
+	</FUNCTION>
+
+	<CMD cmd="function.logoAniTo" />
+	<CMD cmd="userVariable.signUpPageValue  = 'false'" />
+
+	<UILAYOUT portrait="720,1230" landscape="720,1230">
+		<WINDOW id="mainPage" layout="0,0,720,1230" defaultImg="#e62f17">
+			<VIDEO id="video" layout="0,0,720,1230" src="res/vine_splash.mp4" controls="none" autoPlay="false" repeat="true" />
+			<IMAGE id="logo" layout="167,140,391,160" defaultImg="res/logo_overlay.png" visible="inivisible" />
+
+			<STYLEBUTTON layout="23,900,672,95" align="relative" shape="roundRect(10)" overlay1="gradation:tb|#3fa6d7|#278ebe" onClick="function.loginPopup">
+				<STYLEBUTTON layout="0,0,95,95" align="relative" shape="roundRect(10,0,0,10)" overlay1="gradation:tb|#4a4a49|#2e2e2c">
+					<IMAGE layout="25,25,50,50" defaultImg="res/tab_twitter_default.png" />
+				</STYLEBUTTON>
+				<LABEL layout="95,0,576,95" text="Sign in with Twitter" fontSize="40" textAlign="center" textColor="#ffffff" />
+			</STYLEBUTTON>
+
+			<STYLEBUTTON layout="23,1023,672,95" align="relative" shape="roundRect(10)" overlay1="gradation:tb|#e4e4e0|#b5b5b2" onClick="function.signUpPopup">
+				<STYLEBUTTON layout="0,0,95,95" align="relative" shape="roundRect(10,0,0,10)" overlay1="gradation:tb|#c0bebc|#8e8c8a">
+					<IMAGE layout="25,25,50,50" defaultImg="res/ic_vm_mail.png" />
+				</STYLEBUTTON>
+				<LABEL layout="95,0,576,95" text="Sign in with Email" fontSize="40" textAlign="center" textColor="#333332" />
+			</STYLEBUTTON>
+
+
+			<!-- <LABEL layout="0,480,720,50" text="Beautiful, private Sharing" fontSize="30" textAlign="center" textColor="#80ffffff" /> -->
+			<!-- <STYLEBUTTON layout="161,804,400,90" shape="roundRect(10)" defaultImg="#ffffff" text="Sign Up" fontSize="35" textAlign="center" textColor="#e62f17" onClick="function.signUpPopup" /> -->
+			<!-- <LABEL layout="0,920,720,50" text="Already have a Path account?" fontSize="30" textAlign="center" textColor="#80ffffff" /> -->
+			<!-- <STYLEBUTTON layout="161,970,400,90" shape="roundRect(10)" defaultImg="#00ffffff" text="Log In" fontSize="35" textAlign="center" textColor="#80ffffff" borderStyle="solid:2|#80ffffff" -->
+			<!-- onClick="function.loginPopup" /> -->
+		</WINDOW>
+	</UILAYOUT>
+</MOML>
